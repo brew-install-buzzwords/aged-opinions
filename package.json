@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -f function.zip && zip -r function.zip .",
-    "deploy": "aws lambda update-function-code --function-name aged-opinions-twitter-bot --zip-file fileb://function.zip"
+    "deploy": "aws lambda update-function-code --function-name aged-opinions-twitter-bot --zip-file fileb://function.zip",
+    "invoke": "aws lambda invoke --function-name aged-opinions-twitter-bot temp.json"
   },
   "repository": {
     "type": "git",
