@@ -9,7 +9,7 @@ async function getArticle (key) {
     let apiKey = key || process.env.NYT_API_KEY;
 
     try {
-        const response = await got(`https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=section_name:("Opinion") AND pub_date:("${dateString}")&api-key=${apiKey}`);
+        const response = await got(`https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=section_name:("Opinion") AND source:("The New York Times") AND pub_date:("${dateString}")&api-key=${apiKey}`);
         const docs = JSON.parse(response.body).response.docs;
         const article = docs[Math.floor(Math.random() * docs.length)];
         return `${article.snippet} ${article.web_url}`;
